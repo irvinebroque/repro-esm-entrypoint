@@ -2,18 +2,17 @@
   "name": "repro-esm-entrypoint",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
-    "test": "vitest",
+    "repro:wrangler": "wrangler deploy --config wrangler.jsonc --dry-run --outdir dist/wrangler",
+    "repro:vite": "vite build && node scripts/check-vite-output.mjs",
+    "typecheck": "tsc --noEmit",
     "cf-typegen": "wrangler types"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.22.0",
-    "@types/node": "^26.2.0",
+    "@cloudflare/vite-plugin": "^1.53.1",
     "typescript": "^5.5.2",
-    "vitest": "~4.1.0",
+    "vite": "^8.2.2",
     "wrangler": "^4.125.0"
   }
 }

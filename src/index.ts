@@ -1,18 +1,9 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.jsonc`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+import { WorkerEntrypoint } from "cloudflare:workers";
 
-export default {
-	async fetch(request, env, ctx): Promise<Response> {
-		return new Response("Hello World!");
-	},
-} satisfies ExportedHandler<Env>;
+// This is intentionally the only entrypoint. A named WorkerEntrypoint export is
+// valid module-worker syntax and cannot run as a Service Worker.
+export class NamedEntrypoint extends WorkerEntrypoint {
+	fetch(): Response {
+		return new Response("Hello from the named entrypoint");
+	}
+}
