@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "vite dev --config vite.local.config.ts",
     "repro:wrangler": "wrangler deploy --config wrangler.jsonc --dry-run --outdir dist/wrangler",
     "repro:vite": "vite build && node scripts/check-vite-output.mjs",
     "typecheck": "tsc --noEmit",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types && wrangler types caller/worker-configuration.d.ts -c caller/wrangler.jsonc -c wrangler.jsonc --include-runtime false --env-interface CallerEnv"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.53.1",

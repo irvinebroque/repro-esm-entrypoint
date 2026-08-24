@@ -6,4 +6,8 @@ export class NamedEntrypoint extends WorkerEntrypoint {
 	fetch(): Response {
 		return new Response("Hello from the named entrypoint");
 	}
+
+	greet(name: string): string {
+		return `Hello, ${name}, from the named entrypoint`;
+	}
 }

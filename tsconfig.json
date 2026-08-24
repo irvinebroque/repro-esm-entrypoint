@@ -38,5 +38,12 @@
 		"skipLibCheck": true,
 		"types": ["./worker-configuration.d.ts"]
 	},
-	"include": ["worker-configuration.d.ts", "src/**/*.ts", "vite.config.ts"]
+	"include": [
+		"worker-configuration.d.ts",
+		"caller/worker-configuration.d.ts",
+		"caller/src/**/*.ts",
+		"src/**/*.ts",
+		"vite.local.config.ts",
+		"vite.config.ts"
+	]
 }
