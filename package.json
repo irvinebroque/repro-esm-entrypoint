@@ -11,9 +11,9 @@
     "cf-typegen": "wrangler types && wrangler types caller/worker-configuration.d.ts -c caller/wrangler.jsonc -c wrangler.jsonc --include-runtime false --env-interface CallerEnv"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.53.1",
+    "@cloudflare/vite-plugin": "^1.66.0",
     "typescript": "^5.5.2",
     "vite": "^8.2.2",
-    "wrangler": "^4.125.0"
+    "wrangler": "^4.154.0"
   }
 }
